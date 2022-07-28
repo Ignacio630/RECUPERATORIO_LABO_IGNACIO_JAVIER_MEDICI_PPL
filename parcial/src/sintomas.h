@@ -9,6 +9,7 @@ typedef struct{
 	int id;
 	char sintomas[50];
 	int duracion;
+	int idMedicamentos;
 } eSintomas;
 
 /// @brief lista los sintomas ingresados

@@ -138,7 +138,7 @@ int main(void) {
 							listarConsultasEspecialidadDeterminada(listaConsultas,TAM,ListaMedicos,TAM_M,ListaDiagnosticos,TAM_D,listaEspecialidades,TAM_E);
 							break;
 						case 9:
-							puts("9. Porcentaje de consultas diagnosticadas que atiende cada médico en función del total de diagnósticos.");
+							porcentajeConsultasDiagnosticadas(listaConsultas, TAM, ListaMedicos, TAM_M, ListaDiagnosticos, TAM_D);
 							break;
 						case 10:
 							enfermedadMenosDiagnosticada(listaConsultas,TAM,ListaDiagnosticos,TAM_D);

@@ -225,7 +225,19 @@ int listarConsultasEspecialidadDeterminada(eConsulta* listaConsultas,int tam,eMe
 /// @param listaDiagnosticos
 /// @param tamD
 /// @return Caso error (-1) Caso correcto (0)
+
 int enfermedadMenosDiagnosticada(eConsulta* listaConsultas,int tam,eDiagnostico* listaDiagnosticos, int tamD);
+/// @brief
+///
+/// @param listaConsultas
+/// @param tam
+/// @param listaMedicos
+/// @param tamM
+/// @param listaDiagnosticos
+/// @param tamD
+/// @return
+int porcentajeConsultasDiagnosticadas(eConsulta* listaConsultas, int tam, eMedico* listaMedicos, int tamM,eDiagnostico* listaDiagnosticos, int tamD);
+
 /// @brief lista la especialidad mas estudiada por los medicos
 ///
 /// @param listaMedicos

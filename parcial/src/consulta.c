@@ -614,6 +614,117 @@ int listarConsultasEspecialidadDeterminada(eConsulta* listaConsultas,int tam,eMe
 
 }
 
+int porcentajeConsultasDiagnosticadas(eConsulta* listaConsultas, int tam, eMedico* listaMedicos, int tamM,eDiagnostico* listaDiagnosticos, int tamD){
+	int retorno;
+	int contadorCero;
+	int contadorUno;
+	int contadorDos;
+	int contadorTres;
+	int contadorCuatro;
+	int contadorMaximo;
+
+	contadorMaximo = 0;
+	contadorUno = 0;
+	contadorDos = 0;
+	contadorTres = 0;
+	contadorCuatro = 0;
+
+	float promedioCero;
+	float promedioUno;
+	float promedioDos;
+	float promedioTres;
+	float promedioCuatro;
+
+	promedioCero = 0;
+	promedioUno = 0;
+	promedioDos = 0;
+	promedioTres = 0;
+	promedioCuatro = 0;
+
+	retorno = 0;
+
+	if(listaConsultas != NULL && tam > 0 && listaMedicos != NULL && tamM > 0 && listaDiagnosticos != NULL && tamD> 0){
+		for(int i=0;i<tam;i++){
+			if(listaConsultas[i].estado == OCUPADO && listaConsultas[i].idDiagnostico != 0){
+				switch(listaConsultas[i].idMedico){
+				case 0:
+					contadorCero++;
+					break;
+				case 1:
+					contadorUno++;
+					break;
+				case 2:
+					contadorDos++;
+					break;
+				case 3:
+					contadorTres++;
+					break;
+				case 4:
+					contadorCuatro++;
+					break;
+				}
+			}
+		}
+		retorno = 0;
+
+		contadorMaximo = contadorCero + contadorUno +contadorDos + contadorTres + contadorCuatro;
+
+		promedioCero = (float)contadorCero*100/contadorMaximo;
+		promedioUno = (float)contadorUno*100/contadorMaximo;
+		promedioDos = (float)contadorDos*100/contadorMaximo;
+		promedioTres = (float)contadorTres*100/contadorMaximo;
+		promedioCuatro =(float)contadorCuatro*100/contadorMaximo;
+
+		printf("Nombre medico: %s porcentaje de consultas diagnosticadas %.2f\n",listaMedicos[0].nombreMedico, promedioCero);
+		printf("Nombre medico: %s porcentaje de consultas diagnosticadas %.2f\n",listaMedicos[1].nombreMedico, promedioUno);
+		printf("Nombre medico: %s porcentaje de consultas diagnosticadas %.2f\n",listaMedicos[2].nombreMedico, promedioDos);
+		printf("Nombre medico: %s porcentaje de consultas diagnosticadas %.2f\n",listaMedicos[3].nombreMedico, promedioTres);
+		printf("Nombre medico: %s porcentaje de consultas diagnosticadas %.2f\n",listaMedicos[4].nombreMedico, promedioCuatro);
+	}
+
+	return retorno;
+}
+
+int ListarMedicamentosSegunSintomas(eMedicamento* listaMedicamentos, int tamMe, eSintomas* listaSintomas, int tamS){
+    int retorno;
+    int idMedicamento;
+    retorno =0;
+
+    if(listaMedicamentos!= NULL && tamMe > 0 && listaSintomas!= NULL && tamS> 0){
+    	for(int i=0;i<tamS;i++){
+    		idMedicamento = buscarMedicamentoPorId(listaMedicamentos, tamMe, listaSintomas[i].idMedicamentos);
+    		switch (listaSintomas[i].id) {
+				case 1:
+					listaMedicamentos[idMedicamento].id = 0;
+					break;
+				case 2:
+
+					break;
+				case 3:
+
+					break;
+				case 4:
+
+					break;
+				case 5:
+
+					break;
+				case 6:
+
+					break;
+				case 7:
+
+					break;
+				case 8:
+
+					break;
+    		}
+    	}
+    }
+
+	return retorno;
+
+}
 
 void AltaForzada(eConsulta* listaConsulta, eConsulta* listaForzada, int tam)
 {
